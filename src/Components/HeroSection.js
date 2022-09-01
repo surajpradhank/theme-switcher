@@ -4,13 +4,14 @@ import AppTheme from "../Color";
 import lighton from "../img/lighton3.jpg"
 import lightoff from "../img/lightoff.jpg"
 
-const HeroSection = () => {
+const HeroSection = ({ heading }) => {
     const theme = useContext(ThemeContext)[0];
     const currectTheme = AppTheme[theme];
     const [themeMode, setThemeMode] = useContext(ThemeContext);
 
     return (
         <div>
+            <h1>{heading}</h1>
             <section style={{
                 textAlign: "center",
                 fontSize: "30px"
@@ -33,6 +34,7 @@ const HeroSection = () => {
                         :
                         <div>
                             Light On
+
                             <img
                                 src={lighton}
                                 alt="..."
@@ -75,6 +77,7 @@ const HeroSection = () => {
             </div>
         </div>
     );
+    <div className="container"></div>
 };
 
 export default HeroSection;

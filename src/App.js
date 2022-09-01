@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import ThemeContext from "./Context/ThemeContext";
-import HeroSection from "./Components/HeroSection";
+import Navbar from "./Components/Navbar";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from "react-router-dom";
+import ThemeProvider from "./Components/ThemeProvider";
+import SimpleSwitch from "./Components/SimpleSwitch";
 
 const App = () => {
-  const themeHook = useState("light");
+
   return (
-    <ThemeContext.Provider value={themeHook}>
-      <div>
-        <HeroSection />
+    <Router>
+      <Navbar title="Theme Switch" />
+
+      <div className="container">
+        <Routes>
+          <Route exact path="/" element={<ThemeProvider />}>
+          </Route>
+          <Route exact path="/SimpleSwitch" element={<SimpleSwitch />} >
+          </Route>
+        </Routes>
       </div>
-    </ThemeContext.Provider>
+    </Router>
   );
 };
 
